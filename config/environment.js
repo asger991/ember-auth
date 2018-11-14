@@ -1,10 +1,13 @@
 'use strict';
 
+const AUTH_CONFIG = require('./auth0-variables');
+
+
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ember-auth',
     environment,
-    rootURL: '/',
+    rootURL: '/home',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -45,6 +48,12 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+  }
+
+  ENV.auth0 = {
+    clientId: 'VeZYT13RqC7hYZQyzvB3983yRN4AoVsr',
+    domain: 'cgi-test.eu.auth0.com',
+    callbackUrl: 'http://localhost:4200/callback'
   }
 
   return ENV;
